@@ -23,32 +23,113 @@
     <div id="cv">
         <div class="aside">
             <div class="picture"></div>
-            <div style="display: flex; flex-direction: column; text-align: center; font-size: 40px;">
-                <span style="font-weight: bold;">Lucas</span>
+            <div class="flex flex-column text-center" style="font-size: 40px;">
+                <span class="text-bold">Lucas</span>
                 <span>FAGET</span>
             </div>
-            <div style="display: flex; flex-direction: column; text-align: center; font-size: 20px;">
-                <span>Développeur web</span>
+            <div class="flex flex-column text-center" style="font-size: 20px;">
+                <span class="text-bold">Développeur web</span>
             </div>
-            <div class="contact">
-                <img style="width: 36px; height: 36px;" src="mail.svg" alt="mail" />
-                <span>lucas.faget@laposte.net</span>
-            </div>
-            <div class="contact">
-                <img style="width: 36px; height: 36px;" src="phone.svg" alt="phone" />
-                <span>06.02.38.07.36</span>
+            <div class="flex flex-column" style="gap: 4mm;">
+                <div class="contact">
+                    <img class="contact-icon" src="github.svg" alt="github" />
+                    <span>https://github.com/lucas-faget</span>
+                </div>
+                <div class="contact">
+                    <img class="contact-icon" src="mail.svg" alt="mail" />
+                    <span>lucas.faget@laposte.net</span>
+                </div>
+                <div class="contact">
+                    <img class="contact-icon" src="phone.svg" alt="phone" />
+                    <span>06.02.38.07.36</span>
+                </div>
             </div>
             <div class="flags">
                 <img class="flag" src="france.svg" alt="france" />
                 <img class="flag" src="united-kingdom.svg" alt="royaume-uni" />
             </div>
+            <div class="flex flex-column" style="gap: 4mm;">
+                <span class="text-center text-uppercase" style="font-size: 25px;">Intérêts</span>
+                <div class="interests" style="gap: 2mm;">
+                    <img class="interest-icon" src="coding.svg" alt="coding" />
+                    <img class="interest-icon" src="gaming.svg" alt="coding" />
+                    <img class="interest-icon" src="cycling.svg" alt="coding" />
+                </div>
+            </div>
         </div>
 
-        <div class="header">
-
-        </div>
+        <div class="header"></div>
         <div class="body">
-            Hello
+            <div class="flex flex-column">
+                <span class="title">Expérience</span>
+                <div class="separator-line"></div>
+            </div>
+            <div class="timeline">
+                <div class="event">
+                    <div class="date">
+                        <span>2022 - 2023</span>
+                    </div>
+                    <div class="line">
+                        <div class="point"></div>
+                    </div>
+                    <div class="flex flex-column" style="gap: 2mm; padding-bottom: 8mm;">
+                        <span class="color-gold">Alternant développeur web (13 mois)</span>
+                        <ul>
+                            <li>Ajouter du texte</li>
+                            <li>Ajouter du texte</li>
+                            <li>Ajouter du texte</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="date">
+                        <span>2021</span>
+                    </div>
+                    <div class="line">
+                        <div class="point"></div>
+                    </div>
+                    <div class="flex flex-column" style="gap: 2mm;">
+                        <span class="color-gold">Stage en développement web (2 mois)</span>
+                        <ul>
+                            <li>Ajouter du texte</li>
+                            <li>Ajouter du texte</li>
+                            <li>Ajouter du texte</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-column">
+                <span class="title">Formation</span>
+                <div class="separator-line"></div>
+            </div>
+            <div class="timeline">
+                <div class="event">
+                    <div class="date">
+                        <span>2022 - 2023</span>
+                    </div>
+                    <div class="line">
+                        <div class="point"></div>
+                    </div>
+                    <div class="description" style="padding-bottom: 8mm;">
+                        <span class="color-gold">Licence Professionelle DAWIN</span>
+                        <span>Développement en applications web et innovation numérique en alternance</span>
+                        <span>IUT de Bordeaux</span>
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="date">
+                        <span>2020 - 2022</span>
+                    </div>
+                    <div class="line">
+                        <div class="point"></div>
+                    </div>
+                    <div class="description">
+                        <span class="color-gold">DUT Informatique</span>
+                        <span>IUT de Toulouse</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>
@@ -83,6 +164,7 @@
     }
 
     .aside {
+        color: #000;
         background: var(--color-light);
         position: absolute;
         top: var(--padding);
@@ -96,7 +178,8 @@
     }
 
     .picture {
-        background: #fff;
+        background: url("france.svg");
+        background-size: contain;
         width: calc(var(--aside-width) - 2*var(--aside-padding));
         height: calc(var(--aside-width) - 2*var(--aside-padding));
         margin-block: var(--aside-padding) 0;
@@ -110,7 +193,11 @@
         align-items: center;
         gap: 2mm;
         text-align: center;
-        font-size: 16px;
+    }
+
+    .contact-icon {
+        width: 36px;
+        height: 36px;
     }
 
     .flags {
@@ -124,18 +211,99 @@
         height: 50px;
     }
 
+    .interests {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .interest-icon {
+        width: 45px;
+        height: 45px;
+    }
+
     .header {
-        background: var(--color-black);
+        /* background: var(--color-black); */
+        background: url("bordeaux.jpg");
+        background-size: cover;
+        background-position: center 55%;
         width: 100%;
         height: calc((var(--aside-width) / 2) + var(--padding));
     }
 
     .body {
-        color: var(--color-white);
+        color: #fff;
         background: var(--color-dark);
         width: 100%;
         flex: 1;
         padding-block: var(--padding);
         padding-inline: calc(2 * var(--padding) + var(--aside-width)) var(--padding);
+        display: flex;
+        flex-direction: column;
+        gap: 8mm;
+    }
+
+    .separator-line {
+        background-color: var(--color-gold);
+        width: 100%;
+        height: 1px;
+        margin-top: 2mm;
+    }
+
+    .title {
+        color: var(--color-gold);
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+    }
+
+    .event {
+        display: flex;
+        gap: 8mm;
+    }
+
+    .line {
+        background-color: var(--color-gold);
+        position: relative;
+        width: 2px;
+        height: 100%;
+    }
+
+    .point {
+        background-color: var(--color-dark);
+        position: relative;
+        left: -8px;
+        width: 17px;
+        height: 17px;
+        border: 2px solid var(--color-gold);
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+
+    .description {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2mm;
+    }
+
+    .date {
+        width: 25mm;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 2mm;
+        font-size: 16px;
+    }
+
+    ul {
+        list-style-position: inside;
     }
 </style>
