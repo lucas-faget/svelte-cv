@@ -22,8 +22,25 @@
 
     <div id="cv">
         <div class="aside">
-            <div class="picture">
-
+            <div class="picture"></div>
+            <div style="display: flex; flex-direction: column; text-align: center; font-size: 40px;">
+                <span style="font-weight: bold;">Lucas</span>
+                <span>FAGET</span>
+            </div>
+            <div style="display: flex; flex-direction: column; text-align: center; font-size: 20px;">
+                <span>Développeur web</span>
+            </div>
+            <div class="contact">
+                <img style="width: 36px; height: 36px;" src="mail.svg" alt="mail" />
+                <span>lucas.faget@laposte.net</span>
+            </div>
+            <div class="contact">
+                <img style="width: 36px; height: 36px;" src="phone.svg" alt="phone" />
+                <span>06.02.38.07.36</span>
+            </div>
+            <div class="flags">
+                <img class="flag" src="france.svg" alt="france" />
+                <img class="flag" src="united-kingdom.svg" alt="royaume-uni" />
             </div>
         </div>
 
@@ -44,7 +61,7 @@
         --padding: 8mm;
  
         --aside-width: 63mm;
-        --picture-size: 55mm;
+        --aside-padding: 4mm;
     }
 
     main {
@@ -54,6 +71,7 @@
         align-items: center;
         gap: 20px;
         margin-block: 30px 50px;
+        font-family: 'Roboto';
     }
 
     #cv {
@@ -65,33 +83,56 @@
     }
 
     .aside {
-        background: red;
+        background: var(--color-light);
         position: absolute;
         top: var(--padding);
         left: var(--padding);
         width: var(--aside-width);
         height: calc(var(--cv-height) - 2*var(--padding));
         border-radius: var(--aside-width);
+        display: flex;
+        flex-direction: column;
+        gap: 8mm;
     }
 
     .picture {
-        position: absolute;
-        top: calc((var(--aside-width) - var(--picture-size)) / 2);
-        left: calc((var(--aside-width) - var(--picture-size)) / 2);
         background: #fff;
-        width: var(--picture-size);
-        height: var(--picture-size);
+        width: calc(var(--aside-width) - 2*var(--aside-padding));
+        height: calc(var(--aside-width) - 2*var(--aside-padding));
+        margin-block: var(--aside-padding) 0;
+        margin-inline: var(--aside-padding);
         border-radius: 100%;
     }
 
+    .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2mm;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .flags {
+        display: flex;
+        justify-content: center;
+        gap: 4mm;
+    }
+
+    .flag {
+        width: 50px;
+        height: 50px;
+    }
+
     .header {
-        background: #000;
+        background: var(--color-black);
         width: 100%;
         height: calc((var(--aside-width) / 2) + var(--padding));
     }
 
     .body {
-        background: blue;
+        color: var(--color-white);
+        background: var(--color-dark);
         width: 100%;
         flex: 1;
         padding-block: var(--padding);
