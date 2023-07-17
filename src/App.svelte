@@ -32,28 +32,28 @@
             </div>
             <div class="flex flex-column" style="gap: 4mm;">
                 <div class="contact">
-                    <img class="contact-icon" src="github.svg" alt="github" />
+                    <img class="contact-icon" src="icons/github.svg" alt="github" />
                     <span>https://github.com/lucas-faget</span>
                 </div>
                 <div class="contact">
-                    <img class="contact-icon" src="mail.svg" alt="mail" />
+                    <img class="contact-icon" src="icons/mail.svg" alt="mail" />
                     <span>lucas.faget@laposte.net</span>
                 </div>
                 <div class="contact">
-                    <img class="contact-icon" src="phone.svg" alt="phone" />
+                    <img class="contact-icon" src="icons/phone.svg" alt="phone" />
                     <span>06.02.38.07.36</span>
                 </div>
             </div>
             <div class="flags">
-                <img class="flag" src="france.svg" alt="france" />
-                <img class="flag" src="united-kingdom.svg" alt="royaume-uni" />
+                <img class="flag" src="flags/france.svg" alt="france" />
+                <img class="flag" src="flags/united-kingdom.svg" alt="royaume-uni" />
             </div>
             <div class="flex flex-column" style="gap: 4mm;">
                 <span class="text-center text-uppercase" style="font-size: 25px;">Intérêts</span>
                 <div class="interests" style="gap: 2mm;">
-                    <img class="interest-icon" src="coding.svg" alt="coding" />
-                    <img class="interest-icon" src="gaming.svg" alt="coding" />
-                    <img class="interest-icon" src="cycling.svg" alt="coding" />
+                    <img class="interest-icon" src="icons/coding.svg" alt="coding" />
+                    <img class="interest-icon" src="icons/gaming.svg" alt="coding" />
+                    <img class="interest-icon" src="icons/cycling.svg" alt="coding" />
                 </div>
             </div>
         </div>
@@ -74,10 +74,11 @@
                     </div>
                     <div class="flex flex-column" style="gap: 2mm; padding-bottom: 8mm;">
                         <span class="color-gold">Alternant développeur web (13 mois)</span>
-                        <ul>
-                            <li>Ajouter du texte</li>
-                            <li>Ajouter du texte</li>
-                            <li>Ajouter du texte</li>
+                        <span class="color-gray" style="font-size: 14px;">Simpliciti - Lormont (33310)</span>
+                        <ul style="font-size: 14px;">
+                            <li>Développemnt de fonctionnalités et maintenance de EcoboxCarto: Application web d'optimisation de circuits de collecte</li>
+                            <li>SIG / PHP / JS / MySQL / Postgres</li>
+                            <li>Gestion de projet (SCRUM, Git, EasyRedmine)</li>
                         </ul>
                     </div>
                 </div>
@@ -90,10 +91,10 @@
                     </div>
                     <div class="flex flex-column" style="gap: 2mm;">
                         <span class="color-gold">Stage en développement web (2 mois)</span>
-                        <ul>
-                            <li>Ajouter du texte</li>
-                            <li>Ajouter du texte</li>
-                            <li>Ajouter du texte</li>
+                        <span class="color-gray" style="font-size: 14px;">Audit Action plus - Toulouse</span>
+                        <ul style="font-size: 14px;">
+                            <li>Développement d'un ERP</li>
+                            <li>PHP / JS / MySQL</li>
                         </ul>
                     </div>
                 </div>
@@ -113,8 +114,8 @@
                     </div>
                     <div class="description" style="padding-bottom: 8mm;">
                         <span class="color-gold">Licence Professionelle DAWIN</span>
-                        <span>Développement en applications web et innovation numérique en alternance</span>
-                        <span>IUT de Bordeaux</span>
+                        <span class="color-gray" style="font-size: 14px;">IUT de Bordeaux</span>
+                        <span style="font-size: 14px;">Développement en applications web et innovation numérique en alternance</span>
                     </div>
                 </div>
                 <div class="event">
@@ -125,8 +126,55 @@
                         <div class="point"></div>
                     </div>
                     <div class="description">
+                        <span class="color-gray" style="font-size: 14px;">IUT de Toulouse</span>
                         <span class="color-gold">DUT Informatique</span>
-                        <span>IUT de Toulouse</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-column">
+                <span class="title">Technos</span>
+                <div class="separator-line"></div>
+            </div>
+            <!-- Stack -->
+            <div class="flex flex-column" style="gap: 8mm;">
+                <div class="flex align-center" style="gap: 8mm;">
+                    <div class="flex" style="gap: 2mm;">
+                        <img class="star" src="icons/gold-star.svg" alt="star" />
+                        <img class="star" src="icons/gold-star.svg" alt="star" />
+                        <img class="star" src="icons/gold-star.svg" alt="star" />
+                    </div>
+                    <div class="flex" style="gap: 4mm;">
+                        <img class="techno" src="stack/typescript.svg" alt="typescript" />
+                        <img class="techno" src="stack/javascript.svg" alt="javascript" />
+                        <img class="techno" src="stack/php.svg" alt="php" />
+                        <img class="techno" src="stack/database.svg" alt="database" />
+                        <img class="techno" src="stack/git.svg" alt="git" />
+                    </div>
+                </div>
+                <div class="flex align-center" style="gap: 8mm;">
+                    <div class="flex" style="gap: 2mm;">
+                        <img class="star" src="icons/gold-star.svg" alt="star" />
+                        <img class="star" src="icons/gold-star.svg" alt="star" />
+                        <img class="star" src="icons/black-star.svg" alt="star" />
+                    </div>
+                    <div class="flex" style="gap: 4mm;">
+                        <img class="techno" src="stack/vue.svg" alt="vue" />
+                        <img class="techno" src="stack/svelte.svg" alt="svelte" />
+                        <img class="techno" src="stack/laravel.svg" alt="laravel" />
+                        <img class="techno" src="stack/linux.svg" alt="linux" />
+                    </div>
+                </div>
+                <div class="flex align-center" style="gap: 8mm;">
+                    <div class="flex" style="gap: 2mm;">
+                        <img class="star" src="icons/gold-star.svg" alt="star" />
+                        <img class="star" src="icons/black-star.svg" alt="star" />
+                        <img class="star" src="icons/black-star.svg" alt="star" />
+                    </div>
+                    <div class="flex" style="gap: 4mm;">
+                        <img class="techno" src="stack/react.svg" alt="react" />
+                        <img class="techno" src="stack/symfony.svg" alt="symfony" />
+                        <img class="techno" src="stack/docker.svg" alt="docker" />
                     </div>
                 </div>
             </div>
@@ -178,7 +226,7 @@
     }
 
     .picture {
-        background: url("france.svg");
+        background: url("flags/france.svg");
         background-size: contain;
         width: calc(var(--aside-width) - 2*var(--aside-padding));
         height: calc(var(--aside-width) - 2*var(--aside-padding));
@@ -294,7 +342,7 @@
     }
 
     .date {
-        width: 25mm;
+        min-width: 25mm;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -304,6 +352,16 @@
     }
 
     ul {
-        list-style-position: inside;
+        list-style-position: outside;
+    }
+
+    .star {
+        width: 20px;
+        height: 20px;
+    }
+
+    .techno {
+        width: 55px;
+        height: 55px;
     }
 </style>

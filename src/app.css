@@ -5,6 +5,8 @@
     --color-light: hsl(0, 0%, 90%);
     --color-dark: hsl(0, 0%, 35%);
     --color-black: hsl(0, 0%, 20%);
+
+    --color-gray: hsl(0, 0%, 75%);
     --color-gold: hsl(51, 100%, 80%);
 }
 
@@ -44,6 +46,10 @@
 
 .text-uppercase {
     text-transform: uppercase;
+}
+
+.color-gray {
+    color: var(--color-gray);
 }
 
 .color-gold {
