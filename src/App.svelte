@@ -72,12 +72,12 @@
                     <div class="line">
                         <div class="point"></div>
                     </div>
-                    <div class="flex flex-column" style="gap: 2mm; padding-bottom: 8mm;">
+                    <div class="flex flex-column" style="gap: 2mm; padding-bottom: 6mm;">
                         <span class="color-gold">Alternant développeur web (13 mois)</span>
                         <span class="color-gray" style="font-size: 14px;">Simpliciti - Lormont (33310)</span>
                         <ul style="font-size: 14px;">
-                            <li>Développemnt de fonctionnalités et maintenance de EcoboxCarto: Application web d'optimisation de circuits de collecte</li>
-                            <li>SIG / PHP / JS / MySQL / Postgres</li>
+                            <li>Développement de fonctionnalités et maintenance de EcoboxCarto: Application web d'optimisation de circuits de collecte</li>
+                            <li>SIG / PHP / JS / MySQL / PostgreSQL</li>
                             <li>Gestion de projet (SCRUM, Git, EasyRedmine)</li>
                         </ul>
                     </div>
@@ -112,7 +112,7 @@
                     <div class="line">
                         <div class="point"></div>
                     </div>
-                    <div class="description" style="padding-bottom: 8mm;">
+                    <div class="description" style="padding-bottom: 6mm;">
                         <span class="color-gold">Licence Professionelle DAWIN</span>
                         <span class="color-gray" style="font-size: 14px;">IUT de Bordeaux</span>
                         <span style="font-size: 14px;">Développement en applications web et innovation numérique en alternance</span>
@@ -120,13 +120,13 @@
                 </div>
                 <div class="event">
                     <div class="date">
-                        <span>2020 - 2022</span>
+                        <span>2020 - 2021</span>
                     </div>
                     <div class="line">
                         <div class="point"></div>
                     </div>
                     <div class="description">
-                        <span class="color-gold">DUT Informatique</span>
+                        <span class="color-gold">DUT Informatique Année spéciale</span>
                         <span class="color-gray" style="font-size: 14px;">IUT de Toulouse</span>
                     </div>
                 </div>
@@ -211,12 +211,6 @@
         font-family: 'Roboto';
     }
 
-    @media print {
-  #cv {
-    page-break-inside: avoid;
-  }
-}
-
     .aside {
         color: #000;
         background: var(--color-light);
@@ -232,8 +226,8 @@
     }
 
     .picture {
-        background: url("flags/france.svg");
-        background-size: contain;
+        background: url("eric-zemmour.jpg");
+        background-size: cover;
         width: calc(var(--aside-width) - 2*var(--aside-padding));
         height: calc(var(--aside-width) - 2*var(--aside-padding));
         margin-block: var(--aside-padding) 0;
@@ -359,6 +353,11 @@
 
     ul {
         list-style-position: outside;
+        gap: 8mm;
+    }
+
+    ul li {
+        margin-bottom: 2mm;
     }
 
     .star {
