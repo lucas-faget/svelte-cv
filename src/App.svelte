@@ -126,8 +126,8 @@
                         <div class="point"></div>
                     </div>
                     <div class="description">
-                        <span class="color-gray" style="font-size: 14px;">IUT de Toulouse</span>
                         <span class="color-gold">DUT Informatique</span>
+                        <span class="color-gray" style="font-size: 14px;">IUT de Toulouse</span>
                     </div>
                 </div>
             </div>
@@ -200,16 +200,22 @@
         align-items: center;
         gap: 20px;
         margin-block: 30px 50px;
-        font-family: 'Roboto';
     }
 
     #cv {
         position: relative;
         width: 210mm;
-        height: 297mm;
+        height: 296.8mm;
         display: flex;
         flex-direction: column;
+        font-family: 'Roboto';
     }
+
+    @media print {
+  #cv {
+    page-break-inside: avoid;
+  }
+}
 
     .aside {
         color: #000;
