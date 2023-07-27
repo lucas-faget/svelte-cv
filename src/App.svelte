@@ -1,15 +1,17 @@
 <script lang="ts">
     import './app.css';
-
     import jsonData from './data.json';
-
     import html2pdf from 'html2pdf.js';
+
+    const FLAGS_DIR = "flags/";
+    const ICONS_DIR = "icons/";
+    const STACK_DIR = "stack/";
 
     function generatePDF() {
         const content: HTMLElement = document.querySelector('#cv') as HTMLElement;
         const opt = {
             margin:       0,
-            filename:     'CV_FAGET_Lucas.pdf',
+            filename:     jsonData.fileName + '.pdf',
             image:        { type: 'jpeg', quality: 0.98 },
             html2canvas:  { scale: 2 },
             jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
@@ -35,15 +37,15 @@
                 </div>
                 <div class="flex flex-column" style="gap: 4mm;">
                     <div class="contact">
-                        <img class="contact-icon" src="icons/github.svg" alt="github" />
+                        <img class="contact-icon" src={ICONS_DIR + "github.svg"} alt="github" />
                         <span>{jsonData.gitProfileUrl}</span>
                     </div>
                     <div class="contact">
-                        <img class="contact-icon" src="icons/mail.svg" alt="mail" />
+                        <img class="contact-icon" src={ICONS_DIR + "mail.svg"} alt="mail" />
                         <span>{jsonData.email}</span>
                     </div>
                     <div class="contact">
-                        <img class="contact-icon" src="icons/phone.svg" alt="phone" />
+                        <img class="contact-icon" src={ICONS_DIR + "phone.svg"} alt="phone" />
                         <span>{jsonData.phoneNumber}</span>
                     </div>
                 </div>
@@ -51,7 +53,7 @@
                 {#if jsonData.flags}
                     <div class="flags">
                         {#each jsonData.flags as flag}
-                                <img class="flag" src={"flags/" + flag} alt="flag" />
+                                <img class="flag" src={FLAGS_DIR + flag} alt="flag" />
                         {/each}
                     </div>
                 {/if}
@@ -61,7 +63,7 @@
                         <span class="text-center text-uppercase" style="font-size: 25px;">Intérêts</span>
                         <div class="interests" style="gap: 2mm;">
                             {#each jsonData.interests as interest}
-                                <img class="interest-icon" src={"icons/" + interest.imageName} alt={interest.name} />
+                                <img class="interest-icon" src={ICONS_DIR + interest.imageName} alt={interest.name} />
                             {/each}
                         </div>
                     </div>
@@ -112,13 +114,13 @@
                         {#if jsonData.skills.threeStarRatedSkills}
                             <div class="flex align-center" style="gap: 8mm;">
                                 <div class="flex" style="gap: 2mm;">
-                                    <img class="star" src="icons/gold-star.svg" alt="star" />
-                                    <img class="star" src="icons/gold-star.svg" alt="star" />
-                                    <img class="star" src="icons/gold-star.svg" alt="star" />
+                                    <img class="star" src={ICONS_DIR + "gold-star.svg"} alt="star" />
+                                    <img class="star" src={ICONS_DIR + "gold-star.svg"} alt="star" />
+                                    <img class="star" src={ICONS_DIR + "gold-star.svg"} alt="star" />
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.threeStarRatedSkills as skill}
-                                        <img class="techno" src={"stack/" + skill.imageName} alt={skill.name} />
+                                        <img class="techno" src={STACK_DIR + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
@@ -126,13 +128,13 @@
                         {#if jsonData.skills.twoStarRatedSkills}
                             <div class="flex align-center" style="gap: 8mm;">
                                 <div class="flex" style="gap: 2mm;">
-                                    <img class="star" src="icons/gold-star.svg" alt="star" />
-                                    <img class="star" src="icons/gold-star.svg" alt="star" />
-                                    <img class="star" src="icons/black-star.svg" alt="star" />
+                                    <img class="star" src={ICONS_DIR + "gold-star.svg"} alt="star" />
+                                    <img class="star" src={ICONS_DIR + "gold-star.svg"} alt="star" />
+                                    <img class="star" src={ICONS_DIR + "black-star.svg"} alt="star" />
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.twoStarRatedSkills as skill}
-                                        <img class="techno" src={"stack/" + skill.imageName} alt={skill.name} />
+                                        <img class="techno" src={STACK_DIR + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
@@ -140,13 +142,13 @@
                         {#if jsonData.skills.oneStarRatedSkills}
                             <div class="flex align-center" style="gap: 8mm;">
                                 <div class="flex" style="gap: 2mm;">
-                                    <img class="star" src="icons/gold-star.svg" alt="star" />
-                                    <img class="star" src="icons/black-star.svg" alt="star" />
-                                    <img class="star" src="icons/black-star.svg" alt="star" />
+                                    <img class="star" src={ICONS_DIR + "gold-star.svg"} alt="star" />
+                                    <img class="star" src={ICONS_DIR + "black-star.svg"} alt="star" />
+                                    <img class="star" src={ICONS_DIR + "black-star.svg"} alt="star" />
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.oneStarRatedSkills as skill}
-                                        <img class="techno" src={"stack/" + skill.imageName} alt={skill.name} />
+                                        <img class="techno" src={STACK_DIR + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
