@@ -1,6 +1,8 @@
 <script lang="ts">
     import './app.css';
 
+    import jsonData from './data.json';
+
     import html2pdf from 'html2pdf.js';
 
     function generatePDF() {
@@ -20,166 +22,140 @@
 <main>
     <button on:click={generatePDF}>Télécharger en PDF</button>
 
-    <div id="cv">
-        <div class="aside">
-            <div class="picture"></div>
-            <div class="flex flex-column text-center" style="font-size: 40px;">
-                <span class="text-bold">Lucas</span>
-                <span>FAGET</span>
-            </div>
-            <div class="flex flex-column text-center" style="font-size: 20px;">
-                <span class="text-bold">Développeur web</span>
-            </div>
-            <div class="flex flex-column" style="gap: 4mm;">
-                <div class="contact">
-                    <img class="contact-icon" src="icons/github.svg" alt="github" />
-                    <span>https://github.com/lucas-faget</span>
+    {#if jsonData}
+        <div id="cv">
+            <div class="aside">
+                <div class="picture"></div>
+                <div class="flex flex-column text-center" style="font-size: 40px;">
+                    <span class="text-bold">{jsonData.firstName}</span>
+                    <span>{jsonData.lastName}</span>
                 </div>
-                <div class="contact">
-                    <img class="contact-icon" src="icons/mail.svg" alt="mail" />
-                    <span>lucas.faget@laposte.net</span>
+                <div class="flex flex-column text-center" style="font-size: 20px;">
+                    <span class="text-bold">{jsonData.position}</span>
                 </div>
-                <div class="contact">
-                    <img class="contact-icon" src="icons/phone.svg" alt="phone" />
-                    <span>06.02.38.07.36</span>
+                <div class="flex flex-column" style="gap: 4mm;">
+                    <div class="contact">
+                        <img class="contact-icon" src="icons/github.svg" alt="github" />
+                        <span>{jsonData.gitProfileUrl}</span>
+                    </div>
+                    <div class="contact">
+                        <img class="contact-icon" src="icons/mail.svg" alt="mail" />
+                        <span>{jsonData.email}</span>
+                    </div>
+                    <div class="contact">
+                        <img class="contact-icon" src="icons/phone.svg" alt="phone" />
+                        <span>{jsonData.phoneNumber}</span>
+                    </div>
                 </div>
+
+                {#if jsonData.flags}
+                    <div class="flags">
+                        {#each jsonData.flags as flag}
+                                <img class="flag" src={"flags/" + flag} alt="flag" />
+                        {/each}
+                    </div>
+                {/if}
+
+                {#if jsonData.interests}
+                    <div class="flex flex-column" style="gap: 4mm;">
+                        <span class="text-center text-uppercase" style="font-size: 25px;">Intérêts</span>
+                        <div class="interests" style="gap: 2mm;">
+                            {#each jsonData.interests as interest}
+                                <img class="interest-icon" src={"icons/" + interest.imageName} alt={interest.name} />
+                            {/each}
+                        </div>
+                    </div>
+                {/if}
             </div>
-            <div class="flags">
-                <img class="flag" src="flags/france.svg" alt="france" />
-                <img class="flag" src="flags/united-kingdom.svg" alt="royaume-uni" />
-            </div>
-            <div class="flex flex-column" style="gap: 4mm;">
-                <span class="text-center text-uppercase" style="font-size: 25px;">Intérêts</span>
-                <div class="interests" style="gap: 2mm;">
-                    <img class="interest-icon" src="icons/coding.svg" alt="coding" />
-                    <img class="interest-icon" src="icons/gaming.svg" alt="coding" />
-                    <img class="interest-icon" src="icons/cycling.svg" alt="coding" />
-                </div>
+
+            <div class="header"></div>
+            <div class="body">
+                {#each jsonData.sections as section}
+                    <div class="flex flex-column">
+                        <span class="title">{section.sectionTitle}</span>
+                        <div class="separator-line"></div>
+                    </div>
+                    {#if section.events}
+                        <div class="timeline">
+                            {#each section.events as event, index}
+                                <div class="event">
+                                    <div class="date">
+                                        <span>{event.date}</span>
+                                    </div>
+                                    <div class="line">
+                                        <div class="point"></div>
+                                    </div>
+                                    <div class="description" style="gap: 2mm; {index !== section.events.length - 1 ? 'padding-bottom: 8mm;' : ''}">
+                                        <span class="color-gold">{event.title}</span>
+                                        <span class="color-gray" style="font-size: 14px;">{event.place}</span>
+                                        {#if event.textList}
+                                            <ul style="font-size: 14px;">
+                                                {#each event.textList as text}
+                                                    <li>{text}</li>
+                                                {/each}
+                                            </ul>
+                                        {/if}
+                                    </div>
+                                </div>
+                            {/each}
+                        </div>
+                    {/if}
+                {/each}
+
+                {#if jsonData.skills}
+                    <div class="flex flex-column">
+                        <span class="title">Technos</span>
+                        <div class="separator-line"></div>
+                    </div>
+                    <!-- Stack -->
+                    <div class="flex flex-column" style="gap: 8mm;">
+                        {#if jsonData.skills.threeStarRatedSkills}
+                            <div class="flex align-center" style="gap: 8mm;">
+                                <div class="flex" style="gap: 2mm;">
+                                    <img class="star" src="icons/gold-star.svg" alt="star" />
+                                    <img class="star" src="icons/gold-star.svg" alt="star" />
+                                    <img class="star" src="icons/gold-star.svg" alt="star" />
+                                </div>
+                                <div class="flex" style="gap: 4mm;">
+                                    {#each jsonData.skills.threeStarRatedSkills as skill}
+                                        <img class="techno" src={"stack/" + skill.imageName} alt={skill.name} />
+                                    {/each}
+                                </div>
+                            </div>
+                        {/if}
+                        {#if jsonData.skills.twoStarRatedSkills}
+                            <div class="flex align-center" style="gap: 8mm;">
+                                <div class="flex" style="gap: 2mm;">
+                                    <img class="star" src="icons/gold-star.svg" alt="star" />
+                                    <img class="star" src="icons/gold-star.svg" alt="star" />
+                                    <img class="star" src="icons/black-star.svg" alt="star" />
+                                </div>
+                                <div class="flex" style="gap: 4mm;">
+                                    {#each jsonData.skills.twoStarRatedSkills as skill}
+                                        <img class="techno" src={"stack/" + skill.imageName} alt={skill.name} />
+                                    {/each}
+                                </div>
+                            </div>
+                        {/if}
+                        {#if jsonData.skills.oneStarRatedSkills}
+                            <div class="flex align-center" style="gap: 8mm;">
+                                <div class="flex" style="gap: 2mm;">
+                                    <img class="star" src="icons/gold-star.svg" alt="star" />
+                                    <img class="star" src="icons/black-star.svg" alt="star" />
+                                    <img class="star" src="icons/black-star.svg" alt="star" />
+                                </div>
+                                <div class="flex" style="gap: 4mm;">
+                                    {#each jsonData.skills.oneStarRatedSkills as skill}
+                                        <img class="techno" src={"stack/" + skill.imageName} alt={skill.name} />
+                                    {/each}
+                                </div>
+                            </div>
+                        {/if}
+                    </div>
+                {/if}
             </div>
         </div>
-
-        <div class="header"></div>
-        <div class="body">
-            <div class="flex flex-column">
-                <span class="title">Expérience</span>
-                <div class="separator-line"></div>
-            </div>
-            <div class="timeline">
-                <div class="event">
-                    <div class="date">
-                        <span>2022 - 2023</span>
-                    </div>
-                    <div class="line">
-                        <div class="point"></div>
-                    </div>
-                    <div class="flex flex-column" style="gap: 2mm; padding-bottom: 6mm;">
-                        <span class="color-gold">Alternant développeur web (13 mois)</span>
-                        <span class="color-gray" style="font-size: 14px;">Simpliciti - Lormont (33310)</span>
-                        <ul style="font-size: 14px;">
-                            <li>Développement de fonctionnalités et maintenance de EcoboxCarto: Application web d'optimisation de circuits de collecte</li>
-                            <li>SIG / PHP / JS / MySQL / PostgreSQL</li>
-                            <li>Gestion de projet (SCRUM, Git, EasyRedmine)</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="event">
-                    <div class="date">
-                        <span>2021</span>
-                    </div>
-                    <div class="line">
-                        <div class="point"></div>
-                    </div>
-                    <div class="flex flex-column" style="gap: 2mm;">
-                        <span class="color-gold">Stage en développement web (2 mois)</span>
-                        <span class="color-gray" style="font-size: 14px;">Audit Action plus - Toulouse</span>
-                        <ul style="font-size: 14px;">
-                            <li>Développement d'un ERP</li>
-                            <li>PHP / JS / MySQL</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-column">
-                <span class="title">Formation</span>
-                <div class="separator-line"></div>
-            </div>
-            <div class="timeline">
-                <div class="event">
-                    <div class="date">
-                        <span>2022 - 2023</span>
-                    </div>
-                    <div class="line">
-                        <div class="point"></div>
-                    </div>
-                    <div class="description" style="padding-bottom: 6mm;">
-                        <span class="color-gold">Licence Professionelle DAWIN</span>
-                        <span class="color-gray" style="font-size: 14px;">IUT de Bordeaux</span>
-                        <span style="font-size: 14px;">Développement en applications web et innovation numérique en alternance</span>
-                    </div>
-                </div>
-                <div class="event">
-                    <div class="date">
-                        <span>2020 - 2021</span>
-                    </div>
-                    <div class="line">
-                        <div class="point"></div>
-                    </div>
-                    <div class="description">
-                        <span class="color-gold">DUT Informatique Année spéciale</span>
-                        <span class="color-gray" style="font-size: 14px;">IUT de Toulouse</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-column">
-                <span class="title">Technos</span>
-                <div class="separator-line"></div>
-            </div>
-            <!-- Stack -->
-            <div class="flex flex-column" style="gap: 8mm;">
-                <div class="flex align-center" style="gap: 8mm;">
-                    <div class="flex" style="gap: 2mm;">
-                        <img class="star" src="icons/gold-star.svg" alt="star" />
-                        <img class="star" src="icons/gold-star.svg" alt="star" />
-                        <img class="star" src="icons/gold-star.svg" alt="star" />
-                    </div>
-                    <div class="flex" style="gap: 4mm;">
-                        <img class="techno" src="stack/typescript.svg" alt="typescript" />
-                        <img class="techno" src="stack/javascript.svg" alt="javascript" />
-                        <img class="techno" src="stack/php.svg" alt="php" />
-                        <img class="techno" src="stack/database.svg" alt="database" />
-                        <img class="techno" src="stack/git.svg" alt="git" />
-                    </div>
-                </div>
-                <div class="flex align-center" style="gap: 8mm;">
-                    <div class="flex" style="gap: 2mm;">
-                        <img class="star" src="icons/gold-star.svg" alt="star" />
-                        <img class="star" src="icons/gold-star.svg" alt="star" />
-                        <img class="star" src="icons/black-star.svg" alt="star" />
-                    </div>
-                    <div class="flex" style="gap: 4mm;">
-                        <img class="techno" src="stack/vue.svg" alt="vue" />
-                        <img class="techno" src="stack/svelte.svg" alt="svelte" />
-                        <img class="techno" src="stack/laravel.svg" alt="laravel" />
-                        <img class="techno" src="stack/linux.svg" alt="linux" />
-                    </div>
-                </div>
-                <div class="flex align-center" style="gap: 8mm;">
-                    <div class="flex" style="gap: 2mm;">
-                        <img class="star" src="icons/gold-star.svg" alt="star" />
-                        <img class="star" src="icons/black-star.svg" alt="star" />
-                        <img class="star" src="icons/black-star.svg" alt="star" />
-                    </div>
-                    <div class="flex" style="gap: 4mm;">
-                        <img class="techno" src="stack/react.svg" alt="react" />
-                        <img class="techno" src="stack/symfony.svg" alt="symfony" />
-                        <img class="techno" src="stack/docker.svg" alt="docker" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {/if}
 </main>
 
 <style>
@@ -353,11 +329,9 @@
 
     ul {
         list-style-position: outside;
-        gap: 8mm;
-    }
-
-    ul li {
-        margin-bottom: 2mm;
+        display: flex;
+        flex-direction: column;
+        gap: 2mm;
     }
 
     .star {
