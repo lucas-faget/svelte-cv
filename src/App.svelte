@@ -255,7 +255,7 @@
 
     .header {
         /* background: var(--color-black); */
-        background: url("bordeaux.jpg");
+        background: url("/bordeaux.jpg");
         background-size: cover;
         background-position: center 55%;
         width: 100%;
