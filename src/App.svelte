@@ -19,6 +19,8 @@
   
         html2pdf().set(opt).from(content).save();
     }
+
+    $: backgroundPicture = `background: url("${jsonData.profileImage}"); background-size: cover;`;
 </script>
 
 <main>
@@ -27,7 +29,7 @@
     {#if jsonData}
         <div id="cv">
             <div class="aside">
-                <div class="picture"></div>
+                <div class="picture" style={backgroundPicture}></div>
                 <div class="flex flex-column text-center" style="font-size: 40px;">
                     <span class="text-bold">{jsonData.firstName}</span>
                     <span>{jsonData.lastName}</span>
@@ -36,6 +38,10 @@
                     <span class="text-bold">{jsonData.position}</span>
                 </div>
                 <div class="flex flex-column" style="gap: 4mm;">
+                    <div class="contact">
+                        <img class="contact-icon" src={ICONS_DIR + "website.svg"} alt="website" />
+                        <span>{jsonData.website}</span>
+                    </div>
                     <div class="contact">
                         <img class="contact-icon" src={ICONS_DIR + "github.svg"} alt="github" />
                         <span>{jsonData.gitProfileUrl}</span>
@@ -204,8 +210,6 @@
     }
 
     .picture {
-        background: url("eric-zemmour.jpg");
-        background-size: cover;
         width: calc(var(--aside-width) - 2*var(--aside-padding));
         height: calc(var(--aside-width) - 2*var(--aside-padding));
         margin-block: var(--aside-padding) 0;

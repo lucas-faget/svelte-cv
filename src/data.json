@@ -1,8 +1,10 @@
 {
     "fileName": "CV_FAGET_Lucas",
+    "profileImage": "picture.png",
     "firstName": "Lucas",
     "lastName": "Faget",
     "position": "Développeur web",
+    "website": "www.lucas-faget.com",
     "gitProfileUrl": "https://github.com/lucas-faget",
     "email" : "lucas.faget@laposte.net",
     "phoneNumber": "06.02.38.07.36",
