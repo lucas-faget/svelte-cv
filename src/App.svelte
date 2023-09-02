@@ -3,9 +3,9 @@
     import jsonData from './data.json';
     import html2pdf from 'html2pdf.js';
 
-    const FLAGS_DIR = "flags/";
-    const ICONS_DIR = "icons/";
-    const STACK_DIR = "stack/";
+    const ASSETS_FLAG = "/flag/";
+    const ASSETS_ICON = "/icon/";
+    const ASSETS_LOGO = "/logo/";
 
     function generatePDF() {
         const content: HTMLElement = document.querySelector('#cv') as HTMLElement;
@@ -20,7 +20,8 @@
         html2pdf().set(opt).from(content).save();
     }
 
-    $: backgroundPicture = `background: url("${jsonData.profileImage}"); background-size: cover;`;
+    $: pictureBackground = `background: url("/${jsonData.profileImage}"); background-size: cover;`;
+    $: backgroundImage = `background: url("/${jsonData.backgroundImage}"); background-size: cover; background-position: center 55%;`;
 </script>
 
 <main>
@@ -29,7 +30,7 @@
     {#if jsonData}
         <div id="cv">
             <div class="aside">
-                <div class="picture" style={backgroundPicture}></div>
+                <div class="picture" style={pictureBackground}></div>
                 <div class="flex flex-column text-center" style="font-size: 40px;">
                     <span class="text-bold">{jsonData.firstName}</span>
                     <span>{jsonData.lastName}</span>
@@ -39,19 +40,19 @@
                 </div>
                 <div class="flex flex-column" style="gap: 4mm;">
                     <div class="contact">
-                        <img class="contact-icon" src={ICONS_DIR + "website.svg"} alt="website" />
+                        <img class="contact-icon" src={ASSETS_ICON + "website.svg"} alt="website" />
                         <span>{jsonData.website}</span>
                     </div>
                     <div class="contact">
-                        <img class="contact-icon" src={ICONS_DIR + "github.svg"} alt="github" />
+                        <img class="contact-icon" src={ASSETS_ICON + "github.svg"} alt="github" />
                         <span>{jsonData.gitProfileUrl}</span>
                     </div>
                     <div class="contact">
-                        <img class="contact-icon" src={ICONS_DIR + "mail.svg"} alt="mail" />
+                        <img class="contact-icon" src={ASSETS_ICON + "mail.svg"} alt="mail" />
                         <span>{jsonData.email}</span>
                     </div>
                     <div class="contact">
-                        <img class="contact-icon" src={ICONS_DIR + "phone.svg"} alt="phone" />
+                        <img class="contact-icon" src={ASSETS_ICON + "phone.svg"} alt="phone" />
                         <span>{jsonData.phoneNumber}</span>
                     </div>
                 </div>
@@ -59,7 +60,7 @@
                 {#if jsonData.flags}
                     <div class="flags">
                         {#each jsonData.flags as flag}
-                                <img class="flag" src={FLAGS_DIR + flag} alt="flag" />
+                                <img class="flag" src={ASSETS_FLAG + flag} alt="flag" />
                         {/each}
                     </div>
                 {/if}
@@ -69,14 +70,14 @@
                         <span class="text-center text-uppercase" style="font-size: 25px;">Intérêts</span>
                         <div class="interests" style="gap: 2mm;">
                             {#each jsonData.interests as interest}
-                                <img class="interest-icon" src={ICONS_DIR + interest.imageName} alt={interest.name} />
+                                <img class="interest-icon" src={ASSETS_ICON + interest.imageName} alt={interest.name} />
                             {/each}
                         </div>
                     </div>
                 {/if}
             </div>
 
-            <div class="header"></div>
+            <div class="header" style={backgroundImage}></div>
             <div class="body">
                 {#each jsonData.sections as section}
                     <div class="flex flex-column">
@@ -120,13 +121,13 @@
                         {#if jsonData.skills.threeStarRatedSkills}
                             <div class="flex align-center" style="gap: 8mm;">
                                 <div class="flex" style="gap: 2mm;">
-                                    <img class="star" src={ICONS_DIR + "gold-star.svg"} alt="star" />
-                                    <img class="star" src={ICONS_DIR + "gold-star.svg"} alt="star" />
-                                    <img class="star" src={ICONS_DIR + "gold-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "gold-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "gold-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "gold-star.svg"} alt="star" />
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.threeStarRatedSkills as skill}
-                                        <img class="techno" src={STACK_DIR + skill.imageName} alt={skill.name} />
+                                        <img class="techno" src={ASSETS_LOGO + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
@@ -134,13 +135,13 @@
                         {#if jsonData.skills.twoStarRatedSkills}
                             <div class="flex align-center" style="gap: 8mm;">
                                 <div class="flex" style="gap: 2mm;">
-                                    <img class="star" src={ICONS_DIR + "gold-star.svg"} alt="star" />
-                                    <img class="star" src={ICONS_DIR + "gold-star.svg"} alt="star" />
-                                    <img class="star" src={ICONS_DIR + "black-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "gold-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "gold-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "black-star.svg"} alt="star" />
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.twoStarRatedSkills as skill}
-                                        <img class="techno" src={STACK_DIR + skill.imageName} alt={skill.name} />
+                                        <img class="techno" src={ASSETS_LOGO + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
@@ -148,13 +149,13 @@
                         {#if jsonData.skills.oneStarRatedSkills}
                             <div class="flex align-center" style="gap: 8mm;">
                                 <div class="flex" style="gap: 2mm;">
-                                    <img class="star" src={ICONS_DIR + "gold-star.svg"} alt="star" />
-                                    <img class="star" src={ICONS_DIR + "black-star.svg"} alt="star" />
-                                    <img class="star" src={ICONS_DIR + "black-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "gold-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "black-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "black-star.svg"} alt="star" />
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.oneStarRatedSkills as skill}
-                                        <img class="techno" src={STACK_DIR + skill.imageName} alt={skill.name} />
+                                        <img class="techno" src={ASSETS_LOGO + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
@@ -254,10 +255,6 @@
     }
 
     .header {
-        /* background: var(--color-black); */
-        background: url("/bordeaux.jpg");
-        background-size: cover;
-        background-position: center 55%;
         width: 100%;
         height: calc((var(--aside-width) / 2) + var(--padding));
     }
