@@ -21,7 +21,7 @@
     }
 
     $: pictureBackground = `background: url("/${jsonData.profileImage}"); background-size: cover;`;
-    $: backgroundImage = `background: url("/${jsonData.backgroundImage}"); background-size: cover; background-position: center 55%;`;
+    $: bannerBackground = `background: url("/${jsonData.bannerImage}"); background-size: cover; background-position: center 50%;`;
 </script>
 
 <main>
@@ -77,7 +77,7 @@
                 {/if}
             </div>
 
-            <div class="header" style={backgroundImage}></div>
+            <div class="header" style={bannerBackground}></div>
             <div class="body">
                 {#each jsonData.sections as section}
                     <div class="flex flex-column">
