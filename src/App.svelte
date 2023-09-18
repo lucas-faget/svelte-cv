@@ -1,32 +1,16 @@
 <script lang="ts">
     import './app.css';
     import jsonData from './data.json';
-    import html2pdf from 'html2pdf.js';
 
     const ASSETS_FLAG = "/flag/";
     const ASSETS_ICON = "/icon/";
     const ASSETS_LOGO = "/logo/";
-
-    function generatePDF() {
-        const content: HTMLElement = document.querySelector('#cv') as HTMLElement;
-        const opt = {
-            margin:       0,
-            filename:     jsonData.fileName + '.pdf',
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2 },
-            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
-  
-        html2pdf().set(opt).from(content).save();
-    }
 
     $: pictureBackground = `background: url("/${jsonData.profileImage}"); background-size: cover;`;
     $: bannerBackground = `background: url("/${jsonData.bannerImage}"); background-size: cover; background-position: center 50%;`;
 </script>
 
 <main>
-    <button on:click={generatePDF}>Télécharger en PDF</button>
-
     {#if jsonData}
         <div id="cv">
             <div class="aside">
@@ -190,10 +174,22 @@
     #cv {
         position: relative;
         width: 210mm;
-        height: 296.8mm;
+        height: 297mm;
         display: flex;
         flex-direction: column;
         font-family: 'Roboto';
+    }
+
+    @media print {
+        #cv {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        @page {
+            size: A4;
+            margin: 0;
+        }
     }
 
     .aside {
