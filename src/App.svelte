@@ -111,7 +111,7 @@
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.threeStarRatedSkills as skill}
-                                        <img class="techno" src={ASSETS_LOGO + skill.imageName} alt={skill.name} />
+                                        <img class="image" src={ASSETS_LOGO + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.twoStarRatedSkills as skill}
-                                        <img class="techno" src={ASSETS_LOGO + skill.imageName} alt={skill.name} />
+                                        <img class="image" src={ASSETS_LOGO + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
@@ -139,7 +139,7 @@
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.oneStarRatedSkills as skill}
-                                        <img class="techno" src={ASSETS_LOGO + skill.imageName} alt={skill.name} />
+                                        <img class="image" src={ASSETS_LOGO + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
@@ -338,8 +338,9 @@
         height: 20px;
     }
 
-    .techno {
-        width: 55px;
+    .image {
         height: 55px;
+        min-width: 55px;
+        max-width: 80px;
     }
 </style>
