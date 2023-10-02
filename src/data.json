@@ -118,6 +118,10 @@
                 "imageName": "react.svg"
             },
             {
+                "name": "Node.js",
+                "imageName": "nodejs.svg"
+            },
+            {
                 "name": "Symfony",
                 "imageName": "symfony.svg"
             },
