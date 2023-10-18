@@ -2,9 +2,9 @@
     import './app.css';
     import jsonData from './data.json';
 
-    const ASSETS_FLAG = "/flag/";
-    const ASSETS_ICON = "/icon/";
-    const ASSETS_LOGO = "/logo/";
+    const ASSETS_COLLECTION = "assets/collection/";
+    const ASSETS_ICON = "assets/icon/";
+    const ASSETS_LOGO = "assets/logo/";
 
     $: pictureBackground = `background: url("/${jsonData.profileImage}"); background-size: cover;`;
     $: bannerBackground = `background: url("/${jsonData.bannerImage}"); background-size: cover; background-position: center 50%;`;
@@ -15,28 +15,31 @@
         <div id="cv">
             <div class="aside">
                 <div class="picture" style={pictureBackground}></div>
-                <div class="flex flex-column text-center" style="font-size: 40px;">
-                    <span class="text-bold">{jsonData.firstName}</span>
-                    <span>{jsonData.lastName}</span>
+                <div class="flex flex-column text-center" style="font-size: 30px;">
+                    <span class="text-bold">{jsonData.firstName} {jsonData.lastName}</span>
                 </div>
                 <div class="flex flex-column text-center" style="font-size: 20px;">
                     <span class="text-bold">{jsonData.position}</span>
                 </div>
                 <div class="flex flex-column" style="gap: 4mm;">
                     <div class="contact">
-                        <img class="contact-icon" src={ASSETS_ICON + "website.svg"} alt="website" />
+                        <img class="contact-icon" src={ASSETS_COLLECTION + "elegant-circle/global.svg"} alt="website" />
                         <span>{jsonData.website}</span>
                     </div>
                     <div class="contact">
-                        <img class="contact-icon" src={ASSETS_ICON + "github.svg"} alt="github" />
+                        <img class="contact-icon" src={ASSETS_LOGO + "github.svg"} alt="github" />
                         <span>{jsonData.gitProfileUrl}</span>
                     </div>
                     <div class="contact">
-                        <img class="contact-icon" src={ASSETS_ICON + "mail.svg"} alt="mail" />
+                        <img class="contact-icon" src={ASSETS_LOGO + "linkedin-round.svg"} alt="linkedin" />
+                        <span>{jsonData.linkedinProfileUrl}</span>
+                    </div>
+                    <div class="contact">
+                        <img class="contact-icon" src={ASSETS_COLLECTION + "elegant-circle/mail.svg"} alt="mail" />
                         <span>{jsonData.email}</span>
                     </div>
                     <div class="contact">
-                        <img class="contact-icon" src={ASSETS_ICON + "phone.svg"} alt="phone" />
+                        <img class="contact-icon" src={ASSETS_COLLECTION + "elegant-circle/phone.svg"} alt="phone" />
                         <span>{jsonData.phoneNumber}</span>
                     </div>
                 </div>
@@ -44,7 +47,7 @@
                 {#if jsonData.flags}
                     <div class="flags">
                         {#each jsonData.flags as flag}
-                                <img class="flag" src={ASSETS_FLAG + flag} alt="flag" />
+                                <img class="flag" src={ASSETS_ICON + "flag/" + flag} alt="flag" />
                         {/each}
                     </div>
                 {/if}
@@ -54,7 +57,7 @@
                         <span class="text-center text-uppercase" style="font-size: 25px;">Intérêts</span>
                         <div class="interests" style="gap: 2mm;">
                             {#each jsonData.interests as interest}
-                                <img class="interest-icon" src={ASSETS_ICON + interest.imageName} alt={interest.name} />
+                                <img class="interest-icon" src={ASSETS_COLLECTION + interest.imageName} alt={interest.name} />
                             {/each}
                         </div>
                     </div>
@@ -105,13 +108,13 @@
                         {#if jsonData.skills.threeStarRatedSkills}
                             <div class="flex align-center" style="gap: 8mm;">
                                 <div class="flex" style="gap: 2mm;">
-                                    <img class="star" src={ASSETS_ICON + "gold-star.svg"} alt="star" />
-                                    <img class="star" src={ASSETS_ICON + "gold-star.svg"} alt="star" />
-                                    <img class="star" src={ASSETS_ICON + "gold-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.threeStarRatedSkills as skill}
-                                        <img class="image" src={ASSETS_LOGO + skill.imageName} alt={skill.name} />
+                                        <img class="image" src={ASSETS_LOGO + "technology/" + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
@@ -119,13 +122,13 @@
                         {#if jsonData.skills.twoStarRatedSkills}
                             <div class="flex align-center" style="gap: 8mm;">
                                 <div class="flex" style="gap: 2mm;">
-                                    <img class="star" src={ASSETS_ICON + "gold-star.svg"} alt="star" />
-                                    <img class="star" src={ASSETS_ICON + "gold-star.svg"} alt="star" />
-                                    <img class="star" src={ASSETS_ICON + "black-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "star/black-star.svg"} alt="star" />
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.twoStarRatedSkills as skill}
-                                        <img class="image" src={ASSETS_LOGO + skill.imageName} alt={skill.name} />
+                                        <img class="image" src={ASSETS_LOGO + "technology/" + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
@@ -133,13 +136,13 @@
                         {#if jsonData.skills.oneStarRatedSkills}
                             <div class="flex align-center" style="gap: 8mm;">
                                 <div class="flex" style="gap: 2mm;">
-                                    <img class="star" src={ASSETS_ICON + "gold-star.svg"} alt="star" />
-                                    <img class="star" src={ASSETS_ICON + "black-star.svg"} alt="star" />
-                                    <img class="star" src={ASSETS_ICON + "black-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "star/black-star.svg"} alt="star" />
+                                    <img class="star" src={ASSETS_ICON + "star/black-star.svg"} alt="star" />
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.oneStarRatedSkills as skill}
-                                        <img class="image" src={ASSETS_LOGO + skill.imageName} alt={skill.name} />
+                                        <img class="image" src={ASSETS_LOGO + "technology/" + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>

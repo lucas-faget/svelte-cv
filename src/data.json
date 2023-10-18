@@ -5,9 +5,10 @@
     "firstName": "Lucas",
     "lastName": "Faget",
     "position": "Développeur web",
-    "website": "www.lucas-faget.com",
-    "gitProfileUrl": "https://github.com/lucas-faget",
-    "email" : "lucas.faget@laposte.net",
+    "website": "lucas-faget.com",
+    "gitProfileUrl": "github.com/lucas-faget",
+    "linkedinProfileUrl": "linkedin.com/in/lucas-faget/",
+    "email" : "contact@lucas-faget.com",
     "phoneNumber": "06.02.38.07.36",
     "flags": [
         "france.svg",
@@ -16,15 +17,15 @@
     "interests": [
         {
             "name": "Informatique",
-            "imageName": "coding.svg"
+            "imageName": "solar-bold/code-square.svg"
         },
         {
             "name": "Jeux vidéos",
-            "imageName": "gaming.svg"
+            "imageName": "solar-bold/gaming.svg"
         },
         {
             "name": "Cyclisme",
-            "imageName": "cycling.svg"
+            "imageName": "solar-bold/cycling.svg"
         }
     ],
     "sections": [
