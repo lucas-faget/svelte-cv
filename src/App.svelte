@@ -5,6 +5,7 @@
     const ASSETS_COLLECTION = "assets/collection/";
     const ASSETS_ICON = "assets/icon/";
     const ASSETS_LOGO = "assets/logo/";
+    const ASSETS_TECHNOLOGY = "assets/technology/";
 
     $: pictureBackground = `background: url("/${jsonData.profileImage}"); background-size: cover;`;
     $: bannerBackground = `background: url("/${jsonData.bannerImage}"); background-size: cover; background-position: center 50%;`;
@@ -114,7 +115,7 @@
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.threeStarRatedSkills as skill}
-                                        <img class="image" src={ASSETS_LOGO + "technology/" + skill.imageName} alt={skill.name} />
+                                        <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
@@ -128,7 +129,7 @@
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.twoStarRatedSkills as skill}
-                                        <img class="image" src={ASSETS_LOGO + "technology/" + skill.imageName} alt={skill.name} />
+                                        <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
@@ -142,7 +143,7 @@
                                 </div>
                                 <div class="flex" style="gap: 4mm;">
                                     {#each jsonData.skills.oneStarRatedSkills as skill}
-                                        <img class="image" src={ASSETS_LOGO + "technology/" + skill.imageName} alt={skill.name} />
+                                        <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
                                     {/each}
                                 </div>
                             </div>
