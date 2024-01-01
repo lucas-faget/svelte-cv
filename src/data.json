@@ -5,9 +5,9 @@
     "firstName": "Lucas",
     "lastName": "Faget",
     "position": "Développeur web",
-    "website": "lucas-faget.com",
-    "gitProfileUrl": "github.com/lucas-faget",
-    "linkedinProfileUrl": "linkedin.com/in/lucas-faget/",
+    "website": "www.lucas-faget.com",
+    "gitProfileUrl": "www.github.com/lucas-faget",
+    "linkedinProfileUrl": "www.linkedin.com/in/lucas-faget/",
     "email" : "contact@lucas-faget.com",
     "phoneNumber": "06.02.38.07.36",
     "flags": [
@@ -73,6 +73,64 @@
         }
     ],
     "skills": {
+        "frontend": [
+            {
+                "name": "Typescript",
+                "imageName": "typescript.svg"
+            },
+            {
+                "name": "Javascript",
+                "imageName": "javascript.svg"
+            },
+            {
+                "name": "Vue.js",
+                "imageName": "vue.svg"
+            },
+            {
+                "name": "Svelte",
+                "imageName": "svelte.svg"
+            },
+            {
+                "name": "React",
+                "imageName": "react.svg"
+            }
+        ],
+        "backend": [
+            {
+                "name": "PHP",
+                "imageName": "php.svg"
+            },
+            {
+                "name": "Symfony",
+                "imageName": "symfony.svg"
+            },
+            {
+                "name": "Laravel",
+                "imageName": "laravel.svg"
+            },
+            {
+                "name": "Node.js",
+                "imageName": "nodejs.svg"
+            }
+        ],
+        "otherTools": [
+            {
+                "name": "Database",
+                "imageName": "database.svg"
+            },
+            {
+                "name": "Git",
+                "imageName": "git.svg"
+            },
+            {
+                "name": "Linux",
+                "imageName": "linux.svg"
+            },
+            {
+                "name": "Docker",
+                "imageName": "docker.svg"
+            }
+        ],
         "threeStarRatedSkills": [
             {
                 "name": "Javascript",
@@ -105,8 +163,8 @@
                 "imageName": "svelte.svg"
             },
             {
-                "name": "Laravel",
-                "imageName": "laravel.svg"
+                "name": "Symfony",
+                "imageName": "symfony.svg"
             },
             {
                 "name": "Linux",
@@ -123,8 +181,8 @@
                 "imageName": "nodejs.svg"
             },
             {
-                "name": "Symfony",
-                "imageName": "symfony.svg"
+                "name": "Laravel",
+                "imageName": "laravel.svg"
             },
             {
                 "name": "Docker",

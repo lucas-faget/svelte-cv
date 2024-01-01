@@ -16,11 +16,9 @@
         <div id="cv">
             <div class="aside">
                 <div class="picture" style={pictureBackground}></div>
-                <div class="flex flex-column text-center" style="font-size: 30px;">
-                    <span class="text-bold">{jsonData.firstName} {jsonData.lastName}</span>
-                </div>
-                <div class="flex flex-column text-center" style="font-size: 20px;">
-                    <span class="text-bold">{jsonData.position}</span>
+                <div class="flex flex-column" style="gap: 4mm;">
+                    <span class="text-bold text-center" style="font-size: 30px;">{jsonData.firstName} {jsonData.lastName}</span>
+                    <span class="text-bold text-center" style="font-size: 20px;">{jsonData.position}</span>
                 </div>
                 <div class="flex flex-column" style="gap: 4mm;">
                     <div class="contact">
@@ -105,50 +103,70 @@
                         <div class="separator-line"></div>
                     </div>
                     <!-- Stack -->
-                    <div class="flex flex-column" style="gap: 8mm;">
-                        {#if jsonData.skills.threeStarRatedSkills}
-                            <div class="flex align-center" style="gap: 8mm;">
-                                <div class="flex" style="gap: 2mm;">
-                                    <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
-                                    <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
-                                    <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
-                                </div>
-                                <div class="flex" style="gap: 4mm;">
-                                    {#each jsonData.skills.threeStarRatedSkills as skill}
-                                        <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
-                                    {/each}
-                                </div>
+                    <div class="grid">
+                        {#if jsonData.skills.frontend}
+                            <div class="flex align-center">Front-end :</div>
+                            <div class="flex" style="gap: 4mm;">
+                                {#each jsonData.skills.frontend as skill}
+                                    <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
+                                {/each}
                             </div>
                         {/if}
-                        {#if jsonData.skills.twoStarRatedSkills}
-                            <div class="flex align-center" style="gap: 8mm;">
-                                <div class="flex" style="gap: 2mm;">
-                                    <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
-                                    <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
-                                    <img class="star" src={ASSETS_ICON + "star/black-star.svg"} alt="star" />
-                                </div>
-                                <div class="flex" style="gap: 4mm;">
-                                    {#each jsonData.skills.twoStarRatedSkills as skill}
-                                        <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
-                                    {/each}
-                                </div>
+                        {#if jsonData.skills.backend}
+                            <div class="flex align-center">Back-end :</div>
+                            <div class="flex" style="gap: 4mm;">
+                                {#each jsonData.skills.backend as skill}
+                                    <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
+                                {/each}
                             </div>
                         {/if}
-                        {#if jsonData.skills.oneStarRatedSkills}
-                            <div class="flex align-center" style="gap: 8mm;">
-                                <div class="flex" style="gap: 2mm;">
-                                    <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
-                                    <img class="star" src={ASSETS_ICON + "star/black-star.svg"} alt="star" />
-                                    <img class="star" src={ASSETS_ICON + "star/black-star.svg"} alt="star" />
-                                </div>
-                                <div class="flex" style="gap: 4mm;">
-                                    {#each jsonData.skills.oneStarRatedSkills as skill}
-                                        <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
-                                    {/each}
-                                </div>
+                        {#if jsonData.skills.otherTools}
+                            <div class="flex align-center">Autres :</div>
+                            <div class="flex" style="gap: 4mm;">
+                                {#each jsonData.skills.otherTools as skill}
+                                    <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
+                                {/each}
                             </div>
                         {/if}
                     </div>
+                    <!-- <div class="grid">
+                        {#if jsonData.skills.threeStarRatedSkills}
+                            <div class="flex align-center" style="gap: 2mm;">
+                                <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
+                                <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
+                                <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
+                            </div>
+                            <div class="flex" style="gap: 4mm;">
+                                {#each jsonData.skills.threeStarRatedSkills as skill}
+                                    <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
+                                {/each}
+                            </div>
+                        {/if}
+                        {#if jsonData.skills.twoStarRatedSkills}
+                            <div class="flex align-center" style="gap: 2mm;">
+                                <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
+                                <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
+                                <img class="star" src={ASSETS_ICON + "star/black-star.svg"} alt="star" />
+                            </div>
+                            <div class="flex" style="gap: 4mm;">
+                                {#each jsonData.skills.twoStarRatedSkills as skill}
+                                    <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
+                                {/each}
+                            </div>
+                        {/if}
+                        {#if jsonData.skills.oneStarRatedSkills}
+                            <div class="flex align-center" style="gap: 2mm;">
+                                <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
+                                <img class="star" src={ASSETS_ICON + "star/black-star.svg"} alt="star" />
+                                <img class="star" src={ASSETS_ICON + "star/black-star.svg"} alt="star" />
+                            </div>
+                            <div class="flex" style="gap: 4mm;">
+                                {#each jsonData.skills.oneStarRatedSkills as skill}
+                                    <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
+                                {/each}
+                            </div>
+                        {/if}
+                    </div> -->
                 {/if}
             </div>
         </div>
@@ -346,5 +364,12 @@
         height: 55px;
         min-width: 55px;
         max-width: 80px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: minmax(auto, max-content) 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 8mm;
     }
 </style>
