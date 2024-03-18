@@ -1,6 +1,6 @@
 {
     "fileName": "CV_FAGET_Lucas",
-    "profileImage": "picture_cv.png",
+    "profileImage": "picture_cv.jpg",
     "bannerImage": "banner_cv.png",
     "firstName": "Lucas",
     "lastName": "Faget",
@@ -84,7 +84,7 @@
             },
             {
                 "name": "Vue.js",
-                "imageName": "vue.svg"
+                "imageName": "vuejs.svg"
             },
             {
                 "name": "Svelte",
@@ -109,80 +109,18 @@
                 "imageName": "laravel.svg"
             },
             {
-                "name": "Node.js",
-                "imageName": "nodejs.svg"
+                "name": "C#",
+                "imageName": "c_sharp.svg"
             }
         ],
         "otherTools": [
             {
-                "name": "Database",
-                "imageName": "database.svg"
-            },
-            {
                 "name": "Git",
                 "imageName": "git.svg"
             },
             {
                 "name": "Linux",
                 "imageName": "linux.svg"
-            },
-            {
-                "name": "Docker",
-                "imageName": "docker.svg"
-            }
-        ],
-        "threeStarRatedSkills": [
-            {
-                "name": "Javascript",
-                "imageName": "javascript.svg"
-            },
-            {
-                "name": "Typescript",
-                "imageName": "typescript.svg"
-            },
-            {
-                "name": "PHP",
-                "imageName": "php.svg"
-            },
-            {
-                "name": "Database",
-                "imageName": "database.svg"
-            },
-            {
-                "name": "Git",
-                "imageName": "git.svg"
-            }
-        ],
-        "twoStarRatedSkills": [
-            {
-                "name": "Vue.js",
-                "imageName": "vue.svg"
-            },
-            {
-                "name": "Svelte",
-                "imageName": "svelte.svg"
-            },
-            {
-                "name": "Symfony",
-                "imageName": "symfony.svg"
-            },
-            {
-                "name": "Linux",
-                "imageName": "linux.svg"
-            }
-        ],
-        "oneStarRatedSkills": [
-            {
-                "name": "React",
-                "imageName": "react.svg"
-            },
-            {
-                "name": "Node.js",
-                "imageName": "nodejs.svg"
-            },
-            {
-                "name": "Laravel",
-                "imageName": "laravel.svg"
             },
             {
                 "name": "Docker",

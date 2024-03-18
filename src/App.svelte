@@ -7,7 +7,7 @@
     const ASSETS_LOGO = "assets/logo/";
     const ASSETS_TECHNOLOGY = "assets/technology/";
 
-    $: pictureBackground = `background: url("/${jsonData.profileImage}"); background-size: cover;`;
+    $: pictureBackground = `background: url("/${jsonData.profileImage}"); background-size: cover; background-position: center 45%;`;
     $: bannerBackground = `background: url("/${jsonData.bannerImage}"); background-size: cover; background-position: center 50%;`;
 </script>
 
@@ -323,9 +323,9 @@
     .point {
         background-color: var(--color-dark);
         position: relative;
-        left: -8px;
-        width: 17px;
-        height: 17px;
+        left: -9px;
+        width: 20px;
+        height: 20px;
         border: 2px solid var(--color-gold);
         border-radius: 100%;
         box-sizing: border-box;
