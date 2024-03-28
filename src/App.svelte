@@ -17,10 +17,6 @@
             <div class="aside">
                 <div class="picture" style={pictureBackground}></div>
                 <div class="flex flex-column" style="gap: 4mm;">
-                    <span class="text-bold text-center" style="font-size: 30px;">{jsonData.firstName} {jsonData.lastName}</span>
-                    <span class="text-bold text-center" style="font-size: 20px;">{jsonData.position}</span>
-                </div>
-                <div class="flex flex-column" style="gap: 4mm;">
                     <div class="contact">
                         <img class="contact-icon" src={ASSETS_COLLECTION + "elegant-circle/global.svg"} alt="website" />
                         <span>{jsonData.website}</span>
@@ -44,10 +40,13 @@
                 </div>
 
                 {#if jsonData.flags}
-                    <div class="flags">
-                        {#each jsonData.flags as flag}
-                                <img class="flag" src={ASSETS_ICON + "flag/" + flag} alt="flag" />
-                        {/each}
+                    <div class="flex flex-column" style="gap: 4mm;">
+                        <span class="text-center text-uppercase" style="font-size: 25px;">Langues</span>
+                        <div class="flags">
+                            {#each jsonData.flags as flag}
+                                    <img class="flag" src={ASSETS_ICON + "flag/" + flag} alt="flag" />
+                            {/each}
+                        </div>
                     </div>
                 {/if}
 
