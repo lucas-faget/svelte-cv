@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Roboto';
-    src: url(data:font/woff2;base64,xxxxxx) format('woff2');
+    font-family: "Roboto";
+    src: url(data:font/woff2;base64,xxxxxx) format("woff2");
     font-weight: normal;
     font-style: normal;
 }

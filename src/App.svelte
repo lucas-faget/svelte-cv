@@ -1,6 +1,6 @@
 <script lang="ts">
-    import './app.css';
-    import jsonData from './data.json';
+    import "./app.css";
+    import jsonData from "./data.json";
 
     const ASSETS_COLLECTION = "assets/collection/";
     const ASSETS_ICON = "assets/icon/";
@@ -18,7 +18,11 @@
                 <div class="picture" style={pictureBackground}></div>
                 <div class="flex flex-column" style="gap: 4mm;">
                     <div class="contact">
-                        <img class="contact-icon" src={ASSETS_COLLECTION + "elegant-circle/global.svg"} alt="website" />
+                        <img
+                            class="contact-icon"
+                            src={ASSETS_COLLECTION + "elegant-circle/global.svg"}
+                            alt="website"
+                        />
                         <span>{jsonData.website}</span>
                     </div>
                     <div class="contact">
@@ -26,25 +30,39 @@
                         <span>{jsonData.gitProfileUrl}</span>
                     </div>
                     <div class="contact">
-                        <img class="contact-icon" src={ASSETS_LOGO + "linkedin-round.svg"} alt="linkedin" />
+                        <img
+                            class="contact-icon"
+                            src={ASSETS_LOGO + "linkedin-round.svg"}
+                            alt="linkedin"
+                        />
                         <span>{jsonData.linkedinProfileUrl}</span>
                     </div>
                     <div class="contact">
-                        <img class="contact-icon" src={ASSETS_COLLECTION + "elegant-circle/mail.svg"} alt="mail" />
+                        <img
+                            class="contact-icon"
+                            src={ASSETS_COLLECTION + "elegant-circle/mail.svg"}
+                            alt="mail"
+                        />
                         <span>{jsonData.email}</span>
                     </div>
                     <div class="contact">
-                        <img class="contact-icon" src={ASSETS_COLLECTION + "elegant-circle/phone.svg"} alt="phone" />
+                        <img
+                            class="contact-icon"
+                            src={ASSETS_COLLECTION + "elegant-circle/phone.svg"}
+                            alt="phone"
+                        />
                         <span>{jsonData.phoneNumber}</span>
                     </div>
                 </div>
 
                 {#if jsonData.flags}
                     <div class="flex flex-column" style="gap: 4mm;">
-                        <span class="text-center text-uppercase" style="font-size: 25px;">Langues</span>
+                        <span class="text-center text-uppercase" style="font-size: 25px;"
+                            >Langues</span
+                        >
                         <div class="flags">
                             {#each jsonData.flags as flag}
-                                    <img class="flag" src={ASSETS_ICON + "flag/" + flag} alt="flag" />
+                                <img class="flag" src={ASSETS_ICON + "flag/" + flag} alt="flag" />
                             {/each}
                         </div>
                     </div>
@@ -52,10 +70,16 @@
 
                 {#if jsonData.interests}
                     <div class="flex flex-column" style="gap: 4mm;">
-                        <span class="text-center text-uppercase" style="font-size: 25px;">Intérêts</span>
+                        <span class="text-center text-uppercase" style="font-size: 25px;"
+                            >Intérêts</span
+                        >
                         <div class="interests" style="gap: 2mm;">
                             {#each jsonData.interests as interest}
-                                <img class="interest-icon" src={ASSETS_COLLECTION + interest.imageName} alt={interest.name} />
+                                <img
+                                    class="interest-icon"
+                                    src={ASSETS_COLLECTION + interest.imageName}
+                                    alt={interest.name}
+                                />
                             {/each}
                         </div>
                     </div>
@@ -79,9 +103,16 @@
                                     <div class="line">
                                         <div class="point"></div>
                                     </div>
-                                    <div class="description" style="gap: 2mm; {index !== section.events.length - 1 ? 'padding-bottom: 8mm;' : ''}">
+                                    <div
+                                        class="description"
+                                        style="gap: 2mm; {index !== section.events.length - 1
+                                            ? 'padding-bottom: 8mm;'
+                                            : ''}"
+                                    >
                                         <span class="color-gold">{event.title}</span>
-                                        <span class="color-gray" style="font-size: 14px;">{event.place}</span>
+                                        <span class="color-gray" style="font-size: 14px;"
+                                            >{event.place}</span
+                                        >
                                         {#if event.textList}
                                             <ul style="font-size: 14px;">
                                                 {#each event.textList as text}
@@ -107,7 +138,11 @@
                             <div class="flex align-center">Front-end :</div>
                             <div class="flex" style="gap: 4mm;">
                                 {#each jsonData.skills.frontend as skill}
-                                    <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
+                                    <img
+                                        class="image"
+                                        src={ASSETS_TECHNOLOGY + skill.imageName}
+                                        alt={skill.name}
+                                    />
                                 {/each}
                             </div>
                         {/if}
@@ -115,7 +150,11 @@
                             <div class="flex align-center">Back-end :</div>
                             <div class="flex" style="gap: 4mm;">
                                 {#each jsonData.skills.backend as skill}
-                                    <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
+                                    <img
+                                        class="image"
+                                        src={ASSETS_TECHNOLOGY + skill.imageName}
+                                        alt={skill.name}
+                                    />
                                 {/each}
                             </div>
                         {/if}
@@ -123,7 +162,11 @@
                             <div class="flex align-center">Autres :</div>
                             <div class="flex" style="gap: 4mm;">
                                 {#each jsonData.skills.otherTools as skill}
-                                    <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
+                                    <img
+                                        class="image"
+                                        src={ASSETS_TECHNOLOGY + skill.imageName}
+                                        alt={skill.name}
+                                    />
                                 {/each}
                             </div>
                         {/if}
@@ -178,7 +221,7 @@
         --cv-height: 297mm;
 
         --padding: 8mm;
- 
+
         --aside-width: 63mm;
         --aside-padding: 4mm;
     }
@@ -198,7 +241,7 @@
         height: 297mm;
         display: flex;
         flex-direction: column;
-        font-family: 'Roboto';
+        font-family: "Roboto";
     }
 
     @media print {
@@ -220,7 +263,7 @@
         top: var(--padding);
         left: var(--padding);
         width: var(--aside-width);
-        height: calc(var(--cv-height) - 2*var(--padding));
+        height: calc(var(--cv-height) - 2 * var(--padding));
         border-radius: var(--aside-width);
         display: flex;
         flex-direction: column;
@@ -228,8 +271,8 @@
     }
 
     .picture {
-        width: calc(var(--aside-width) - 2*var(--aside-padding));
-        height: calc(var(--aside-width) - 2*var(--aside-padding));
+        width: calc(var(--aside-width) - 2 * var(--aside-padding));
+        height: calc(var(--aside-width) - 2 * var(--aside-padding));
         margin-block: var(--aside-padding) 0;
         margin-inline: var(--aside-padding);
         border-radius: 100%;

@@ -8,12 +8,9 @@
     "website": "www.lucas-faget.com",
     "gitProfileUrl": "www.github.com/lucas-faget",
     "linkedinProfileUrl": "www.linkedin.com/in/lucas-faget/",
-    "email" : "contact@lucas-faget.com",
+    "email": "contact@lucas-faget.com",
     "phoneNumber": "06.02.38.07.36",
-    "flags": [
-        "france.svg",
-        "united-kingdom.svg"
-    ],
+    "flags": ["france.svg", "united-kingdom.svg"],
     "interests": [
         {
             "name": "Informatique",
@@ -46,10 +43,7 @@
                     "date": "2021",
                     "title": "Stage en développement web (2 mois)",
                     "place": "Audit Action plus - Toulouse",
-                    "textList": [
-                        "Développement d'un ERP",
-                        "PHP / JS / MySQL"
-                    ]
+                    "textList": ["Développement d'un ERP", "PHP / JS / MySQL"]
                 }
             ]
         },
@@ -127,5 +121,5 @@
                 "imageName": "docker.svg"
             }
         ]
-    }    
+    }
 }
