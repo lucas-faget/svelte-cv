@@ -1,24 +1,39 @@
-@font-face {
-    font-family: "Roboto";
-    src: url(data:font/woff2;base64,xxxxxx) format("woff2");
-    font-weight: normal;
-    font-style: normal;
-}
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
 :root {
-    --color-white: hsl(0, 0%, 95%);
-    --color-light: hsl(0, 0%, 90%);
-    --color-dark: hsl(0, 0%, 25%);
-    --color-black: hsl(0, 0%, 20%);
+    --color-white: #fff;
+    --color-light: #d4d4d4;
+    --color-dark: #404040;
+    --color-black: #262626;
 
-    --color-gray: hsl(0, 0%, 75%);
-    --color-gold: hsl(51, 100%, 80%);
+    --color-gray: #64748b;
+    --color-gold-light: #fffbeb;
+    --color-primary: #0369a1;
 }
 
 * {
+    font-family: "Nunito", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-no-wrap {
+    white-space: nowrap;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .flex {
@@ -39,24 +54,4 @@
 
 .flex-wrap {
     flex-wrap: wrap;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-bold {
-    font-weight: bold;
-}
-
-.text-uppercase {
-    text-transform: uppercase;
-}
-
-.color-gray {
-    color: var(--color-gray);
-}
-
-.color-gold {
-    color: var(--color-gold);
 }

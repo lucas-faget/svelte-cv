@@ -1,14 +1,9 @@
 <script lang="ts">
     import "./app.css";
-    import jsonData from "./data.json";
+    import jsonData from "/data.json";
 
-    const ASSETS_COLLECTION = "assets/collection/";
-    const ASSETS_ICON = "assets/icon/";
-    const ASSETS_LOGO = "assets/logo/";
-    const ASSETS_TECHNOLOGY = "assets/technology/";
-
-    $: pictureBackground = `background: url("/${jsonData.profileImage}"); background-size: cover; background-position: center 45%;`;
-    $: bannerBackground = `background: url("/${jsonData.bannerImage}"); background-size: cover; background-position: center 50%;`;
+    $: pictureBackground = `background: url("${jsonData.profileImageUrl}"); background-size: cover; background-position: center 45%;`;
+    $: bannerBackground = `background: url("${jsonData.bannerImageUrl}"); background-size: cover; background-position: center 50%;`;
 </script>
 
 <main>
@@ -20,19 +15,23 @@
                     <div class="contact">
                         <img
                             class="contact-icon"
-                            src={ASSETS_COLLECTION + "elegant-circle/global.svg"}
+                            src="http://assets.lucas-faget.com/icons/collections/elegant-circle/global.svg"
                             alt="website"
                         />
-                        <span>{jsonData.website}</span>
+                        <span>{jsonData.websiteUrl}</span>
                     </div>
                     <div class="contact">
-                        <img class="contact-icon" src={ASSETS_LOGO + "github.svg"} alt="github" />
+                        <img
+                            class="contact-icon"
+                            src="http://assets.lucas-faget.com/logos/github.svg"
+                            alt="github"
+                        />
                         <span>{jsonData.gitProfileUrl}</span>
                     </div>
                     <div class="contact">
                         <img
                             class="contact-icon"
-                            src={ASSETS_LOGO + "linkedin-round.svg"}
+                            src="http://assets.lucas-faget.com/logos/linkedin.svg"
                             alt="linkedin"
                         />
                         <span>{jsonData.linkedinProfileUrl}</span>
@@ -40,7 +39,7 @@
                     <div class="contact">
                         <img
                             class="contact-icon"
-                            src={ASSETS_COLLECTION + "elegant-circle/mail.svg"}
+                            src="http://assets.lucas-faget.com/icons/collections/elegant-circle/mail.svg"
                             alt="mail"
                         />
                         <span>{jsonData.email}</span>
@@ -48,7 +47,7 @@
                     <div class="contact">
                         <img
                             class="contact-icon"
-                            src={ASSETS_COLLECTION + "elegant-circle/phone.svg"}
+                            src="http://assets.lucas-faget.com/icons/collections/elegant-circle/phone.svg"
                             alt="phone"
                         />
                         <span>{jsonData.phoneNumber}</span>
@@ -62,7 +61,11 @@
                         >
                         <div class="flags">
                             {#each jsonData.flags as flag}
-                                <img class="flag" src={ASSETS_ICON + "flag/" + flag} alt="flag" />
+                                <img
+                                    class="flag"
+                                    src={`http://assets.lucas-faget.com/icons/flag-${flag}-circle`}
+                                    alt="flag"
+                                />
                             {/each}
                         </div>
                     </div>
@@ -77,7 +80,7 @@
                             {#each jsonData.interests as interest}
                                 <img
                                     class="interest-icon"
-                                    src={ASSETS_COLLECTION + interest.imageName}
+                                    src={interest.imageUrl}
                                     alt={interest.name}
                                 />
                             {/each}
@@ -109,7 +112,7 @@
                                             ? 'padding-bottom: 8mm;'
                                             : ''}"
                                     >
-                                        <span class="color-gold">{event.title}</span>
+                                        <span class="color-primary">{event.title}</span>
                                         <span class="color-gray" style="font-size: 14px;"
                                             >{event.place}</span
                                         >
@@ -135,80 +138,30 @@
                     <!-- Stack -->
                     <div class="grid">
                         {#if jsonData.skills.frontend}
-                            <div class="flex align-center">Front-end :</div>
+                            <div class="flex align-center text-no-wrap">Front-end :</div>
                             <div class="flex" style="gap: 4mm;">
                                 {#each jsonData.skills.frontend as skill}
-                                    <img
-                                        class="image"
-                                        src={ASSETS_TECHNOLOGY + skill.imageName}
-                                        alt={skill.name}
-                                    />
+                                    <img class="image" src={skill.imageUrl} alt={skill.name} />
                                 {/each}
                             </div>
                         {/if}
                         {#if jsonData.skills.backend}
-                            <div class="flex align-center">Back-end :</div>
+                            <div class="flex align-center text-no-wrap">Back-end :</div>
                             <div class="flex" style="gap: 4mm;">
                                 {#each jsonData.skills.backend as skill}
-                                    <img
-                                        class="image"
-                                        src={ASSETS_TECHNOLOGY + skill.imageName}
-                                        alt={skill.name}
-                                    />
+                                    <img class="image" src={skill.imageUrl} alt={skill.name} />
                                 {/each}
                             </div>
                         {/if}
                         {#if jsonData.skills.otherTools}
-                            <div class="flex align-center">Autres :</div>
+                            <div class="flex align-center text-no-wrap">Autres :</div>
                             <div class="flex" style="gap: 4mm;">
                                 {#each jsonData.skills.otherTools as skill}
-                                    <img
-                                        class="image"
-                                        src={ASSETS_TECHNOLOGY + skill.imageName}
-                                        alt={skill.name}
-                                    />
+                                    <img class="image" src={skill.imageUrl} alt={skill.name} />
                                 {/each}
                             </div>
                         {/if}
                     </div>
-                    <!-- <div class="grid">
-                        {#if jsonData.skills.threeStarRatedSkills}
-                            <div class="flex align-center" style="gap: 2mm;">
-                                <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
-                                <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
-                                <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
-                            </div>
-                            <div class="flex" style="gap: 4mm;">
-                                {#each jsonData.skills.threeStarRatedSkills as skill}
-                                    <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
-                                {/each}
-                            </div>
-                        {/if}
-                        {#if jsonData.skills.twoStarRatedSkills}
-                            <div class="flex align-center" style="gap: 2mm;">
-                                <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
-                                <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
-                                <img class="star" src={ASSETS_ICON + "star/black-star.svg"} alt="star" />
-                            </div>
-                            <div class="flex" style="gap: 4mm;">
-                                {#each jsonData.skills.twoStarRatedSkills as skill}
-                                    <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
-                                {/each}
-                            </div>
-                        {/if}
-                        {#if jsonData.skills.oneStarRatedSkills}
-                            <div class="flex align-center" style="gap: 2mm;">
-                                <img class="star" src={ASSETS_ICON + "star/gold-star.svg"} alt="star" />
-                                <img class="star" src={ASSETS_ICON + "star/black-star.svg"} alt="star" />
-                                <img class="star" src={ASSETS_ICON + "star/black-star.svg"} alt="star" />
-                            </div>
-                            <div class="flex" style="gap: 4mm;">
-                                {#each jsonData.skills.oneStarRatedSkills as skill}
-                                    <img class="image" src={ASSETS_TECHNOLOGY + skill.imageName} alt={skill.name} />
-                                {/each}
-                            </div>
-                        {/if}
-                    </div> -->
                 {/if}
             </div>
         </div>
@@ -217,6 +170,13 @@
 
 <style>
     :root {
+        --aside-text-color: var(--color-dark);
+        --aside-background-color: var(--color-gold-light);
+
+        --body-title-color: var(--color-primary);
+        --body-text-color: var(--color-dark);
+        --body-background-color: var(--color-white);
+
         --cv-width: 210mm;
         --cv-height: 297mm;
 
@@ -224,6 +184,14 @@
 
         --aside-width: 63mm;
         --aside-padding: 4mm;
+    }
+
+    .color-gray {
+        color: var(--color-gray);
+    }
+
+    .color-primary {
+        color: var(--color-primary);
     }
 
     main {
@@ -241,7 +209,6 @@
         height: 297mm;
         display: flex;
         flex-direction: column;
-        font-family: "Roboto";
     }
 
     @media print {
@@ -257,8 +224,8 @@
     }
 
     .aside {
-        color: #000;
-        background: var(--color-light);
+        color: var(--aside-text-color);
+        background: var(--aside-background-color);
         position: absolute;
         top: var(--padding);
         left: var(--padding);
@@ -320,8 +287,8 @@
     }
 
     .body {
-        color: #fff;
-        background: var(--color-dark);
+        color: var(--body-text-color);
+        background: var(--body-background-color);
         width: 100%;
         flex: 1;
         padding-block: var(--padding);
@@ -332,14 +299,13 @@
     }
 
     .separator-line {
-        background-color: var(--color-gold);
+        background-color: var(--body-title-color);
         width: 100%;
-        height: 1px;
-        margin-top: 2mm;
+        height: 0.5px;
     }
 
     .title {
-        color: var(--color-gold);
+        color: var(--body-title-color);
         font-size: 20px;
         text-transform: uppercase;
     }
@@ -356,19 +322,20 @@
     }
 
     .line {
-        background-color: var(--color-gold);
+        background-color: var(--body-title-color);
         position: relative;
-        width: 2px;
+        width: 1px;
         height: 100%;
     }
 
     .point {
-        background-color: var(--color-dark);
+        background-color: var(--body-background-color);
         position: relative;
-        left: -9px;
+        left: 1px;
+        transform: translateX(-50%);
         width: 20px;
-        height: 20px;
-        border: 2px solid var(--color-gold);
+        aspect-ratio: 1/1;
+        border: 1px solid var(--body-title-color);
         border-radius: 100%;
         box-sizing: border-box;
     }
@@ -395,11 +362,6 @@
         display: flex;
         flex-direction: column;
         gap: 2mm;
-    }
-
-    .star {
-        width: 20px;
-        height: 20px;
     }
 
     .image {
