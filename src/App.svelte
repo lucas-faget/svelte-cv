@@ -15,7 +15,7 @@
                     <div class="contact">
                         <img
                             class="contact-icon"
-                            src="http://assets.lucas-faget.com/icons/collections/elegant-circle/global.svg"
+                            src="https://assets.lucas-faget.com/icons/collections/elegant-circle/global.svg"
                             alt="website"
                         />
                         <span>{jsonData.websiteUrl}</span>
@@ -23,7 +23,7 @@
                     <div class="contact">
                         <img
                             class="contact-icon"
-                            src="http://assets.lucas-faget.com/logos/github.svg"
+                            src="https://assets.lucas-faget.com/logos/github.svg"
                             alt="github"
                         />
                         <span>{jsonData.gitProfileUrl}</span>
@@ -31,7 +31,7 @@
                     <div class="contact">
                         <img
                             class="contact-icon"
-                            src="http://assets.lucas-faget.com/logos/linkedin.svg"
+                            src="https://assets.lucas-faget.com/logos/companies/linkedin.svg"
                             alt="linkedin"
                         />
                         <span>{jsonData.linkedinProfileUrl}</span>
@@ -39,7 +39,7 @@
                     <div class="contact">
                         <img
                             class="contact-icon"
-                            src="http://assets.lucas-faget.com/icons/collections/elegant-circle/mail.svg"
+                            src="https://assets.lucas-faget.com/icons/collections/elegant-circle/mail.svg"
                             alt="mail"
                         />
                         <span>{jsonData.email}</span>
@@ -47,7 +47,7 @@
                     <div class="contact">
                         <img
                             class="contact-icon"
-                            src="http://assets.lucas-faget.com/icons/collections/elegant-circle/phone.svg"
+                            src="https://assets.lucas-faget.com/icons/collections/elegant-circle/phone.svg"
                             alt="phone"
                         />
                         <span>{jsonData.phoneNumber}</span>
@@ -63,7 +63,7 @@
                             {#each jsonData.flags as flag}
                                 <img
                                     class="flag"
-                                    src={`http://assets.lucas-faget.com/icons/flag-${flag}-circle`}
+                                    src={`https://assets.lucas-faget.com/icons/flag-${flag}-circle.svg`}
                                     alt="flag"
                                 />
                             {/each}
@@ -283,6 +283,7 @@
 
     .header {
         width: 100%;
+        flex-shrink: 0;
         height: calc((var(--aside-width) / 2) + var(--padding));
     }
 
@@ -291,11 +292,11 @@
         background: var(--body-background-color);
         width: 100%;
         flex: 1;
-        padding-block: var(--padding);
+        padding-block: 6mm;
         padding-inline: calc(2 * var(--padding) + var(--aside-width)) var(--padding);
         display: flex;
         flex-direction: column;
-        gap: 8mm;
+        gap: 6mm;
     }
 
     .separator-line {
@@ -365,8 +366,8 @@
     }
 
     .image {
-        height: 55px;
-        min-width: 55px;
+        height: 50px;
+        min-width: 50px;
         max-width: 80px;
     }
 
